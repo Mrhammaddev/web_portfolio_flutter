@@ -14,61 +14,47 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: allBackgroundColor,
-      body: Padding(
-        padding: const EdgeInsets.all(40.0),
-        child: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            // padding: const EdgeInsets.all(16),
-            decoration: const BoxDecoration(
-              color: kBackgroundColor,
-              borderRadius: BorderRadius.all(
-                Radius.circular(38),
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    opacity: 0.7,
+                    image:
+                        NetworkImage("https://www.sideguide.dev/squared.png"),
+                    fit: BoxFit.cover),
               ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              // ignore: prefer_const_literals_to_create_immutables
-              children: [
-                // ignore: prefer_const_constructors
-                Header(),
-                Carousel(),
-                // Carousel(),
-                // const SizedBox(
-                //   height: 20.0,
-                // ),
-                // CvSection(),
-                // IosAppAd(),
-                // const SizedBox(
-                //   height: 70.0,
-                // ),
-                // WebsiteAd(),
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(vertical: 28.0),
-                //   child: PortfolioStats(),
-                // ),
-                // const SizedBox(
-                //   height: 50.0,
-                // ),
-                // EducationSection(),
-                // const SizedBox(
-                //   height: 50.0,
-                // ),
-                // SkillSection(),
-                // const SizedBox(
-                //   height: 50.0,
-                // ),
-                // Sponsors(),
-                // const SizedBox(
-                //   height: 50.0,
-                // ),
-                // TestimonialWidget(),
-                // Footer(),
-              ],
-            ),
           ),
-        ),
+          Container(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: kHeight(context) / 1.5,
+                          width: kWidth(context) / 2,
+                          color: Colors.red,
+                        ),
+                        Container(
+                          height: kHeight(context) / 1.5,
+                          width: kWidth(context) / 2,
+                          color: Colors.green,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
